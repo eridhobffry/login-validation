@@ -33,14 +33,8 @@ class LoginPage extends React.Component {
       hasErrorOnEmail: true,
       hasErrorOnPassword: true,
       errors: {
-        checked: "",
-        checkedNL: "",
-        chekedAGB: "",
-        fname: "",
-        lname: "",
         email: "",
         password: "",
-        confirmPassword: "",
       }
     };
     // this.handleToggle = this.handleToggle.bind(this);
