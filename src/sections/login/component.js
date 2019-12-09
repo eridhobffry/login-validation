@@ -87,7 +87,7 @@ class LoginPage extends React.Component {
     }
 
     if (this.state.password !== "" &&
-    this.state.password.length > 7 &&
+    this.state.password.length > 2 &&
     this.state.password === "test"
     ) {
       this.setState({ hasErrorOnPassword: true });
@@ -97,21 +97,21 @@ class LoginPage extends React.Component {
   }
 
 
-  handleChangeEmail(event) {
-    this.setState({ email: event.target.value });
+  handleChangeEmail(e) {
+    this.setState({ email: e.target.value });
 
     this.setState({ hasErrorOnEmail: true });
-    if (!validEmailRegex.test(this.state.email) || this.state.email.length < 4) {
+    if (!validEmailRegex.test(this.state.email) || this.state.email.length < 2) {
       this.setState({ hasErrorOnEmail: false });
     }
 
   }
 
-  handleChangePassword(event) {
-    this.setState({ password: event.target.value });
+  handleChangePassword(e) {
+    this.setState({ password: e.target.value });
 
     this.setState({ hasErrorOnPassword: true });
-    if (this.state.password.length < 7) {
+    if (this.state.password.length < 3) {
       this.setState({ hasErrorOnPassword: false });
     }
 
@@ -136,7 +136,7 @@ class LoginPage extends React.Component {
   render() {
     // var ConditionalLink = this.state.hasErrorOnEmail && this.state.hasErrorOnPassword ? Link : React.DOM.div;
     const { classes, ...rest } = this.props;
-
+    console.log(this.state.email)
     return (
       <div>
         <div>
@@ -153,8 +153,8 @@ class LoginPage extends React.Component {
                         noValidate
                         >
                            <FormGroup>
-        <Label for="exampleEmail">Email</Label>
-        <Input type="email" name="email" id="email" placeholder="" onChange={(e) => this.handleChangeEmail}/>
+        <Label for="email">Email</Label>
+        <Input type="email" name="email" id="email" placeholder="" onChange={this.handleChangeEmail}/>
         {this.state.hasErrorOnEmail === false ? <span className="text-danger">
                             <span>
                             Email doesn't match
@@ -162,8 +162,8 @@ class LoginPage extends React.Component {
                           </span> : ""}
       </FormGroup>
       <FormGroup>
-        <Label for="examplePassword">Password</Label>
-        <Input type="password" name="password" id="password" placeholder="" onChange={(e) => this.handleChangePassword}/>
+        <Label for="password">Password</Label>
+        <Input type="password" name="password" id="password" placeholder="" onChange={this.handleChangePassword}/>
         {this.state.hasErrorOnPassword === false ? <span className="text-danger">
                             <span>
                             Password doesn't match
