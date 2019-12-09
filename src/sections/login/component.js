@@ -88,7 +88,7 @@ class LoginPage extends React.Component {
 
     if (this.state.password !== "" &&
     this.state.password.length > 2 &&
-    this.state.password === "test"
+    this.state.password === "test@unsircle.com"
     ) {
       this.setState({ hasErrorOnPassword: true });
       

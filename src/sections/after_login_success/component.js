@@ -17,7 +17,7 @@ class LoginPage extends React.Component {
     this.state = {
       // value statements
       email: "test@unsircle.com",
-      password: "test",
+      password: "test@unsircle.com",
     };
   }
 
