@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import "./assets/css/bootstrap.min.css"
 import App from './App';
+import LoginPage from "../src/components/pages/register"
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 ReactDOM.render(
 <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={props => <App {...props} />} />
+      <Route exact path="/" component={props => <LoginPage {...props} />} />
       <Route exact path="/test" component={props => <App {...props} />} />
       </Switch>
       </BrowserRouter>

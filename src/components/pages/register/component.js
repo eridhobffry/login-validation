@@ -1,6 +1,6 @@
 import React from "react";
 
-import MainLogin from "../../../sections/register/register_candidate/arzt"
+import MainLogin from "../../../sections/login"
 
 
 var Login = () => {
