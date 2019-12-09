@@ -1,7 +1,7 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-
+import {Link} from "react-router-dom"
 import {
   Button, FormGroup, Label, Input, Form
 } from "reactstrap"
@@ -42,8 +42,18 @@ class LoginPage extends React.Component {
               <GridItem xs={12} sm={12} md={12}>
                 <div className="shell section-110">
   <h1>Welcome -{this.state.email}- and this is your password -{this.state.password}-</h1>
-                  
+  <Link
+  to={{
+    pathname: "/"
+  }}
+  
+> 
+<Button >
+                              Logout
+                            </Button>
+</Link>
                 </div>
+                
               </GridItem>
             </GridContainer>
           </div>
