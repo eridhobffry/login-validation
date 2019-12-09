@@ -1,5 +1,5 @@
 import React from "react";
-import SuccessLogin from "../../../sections/register/register_candidate/arzt"
+import SuccessLogin from "../../../../sections/after_login_success"
 
 
 var LoginSuccess = () => {

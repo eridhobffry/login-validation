@@ -1,16 +1,15 @@
 import React from "react";
 // nodejs library to set properties for components
+
+import {Link} from "react-router-dom"
 import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import {
-  Button, FormGroup, Label, Input, Form
+  Button, FormGroup, Label, Input, Form, Row, Col
 } from "reactstrap"
 
-// core components
-import GridContainer from "../../components/building_blocks/Grid/GridContainer.jsx";
-import GridItem from "../../components/building_blocks/Grid/GridItem.jsx";
 
 const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 
@@ -135,28 +134,27 @@ class LoginPage extends React.Component {
   }
 
   render() {
-
+    // var ConditionalLink = this.state.hasErrorOnEmail && this.state.hasErrorOnPassword ? Link : React.DOM.div;
     const { classes, ...rest } = this.props;
 
     return (
       <div>
-        
         <div>
-          <div >
-            <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={12}>
+          <div className="shell" >
+            <Row className="justify-content-center section-top-110">
+              <Col md="12" xs="12" className="">
                 <div className="shell section-110">
-                  <h1>Unsircle Login</h1>
+                  <h1 className="text-center">Unsircle Login</h1>
                   <div className="section-50">
-                    <GridContainer justify="center">
-                      <GridItem xs={12} sm={8} md={8}>
+                    <Row className="justify-content-center">
+                      <Col md="12" xs="8">
                         <Form
                         onSubmit={this.contactSubmit.bind(this)}
                         noValidate
                         >
                            <FormGroup>
         <Label for="exampleEmail">Email</Label>
-        <Input type="email" name="email" id="email" placeholder="" onChange={(e) => this.handleChangeEmail()}/>
+        <Input type="email" name="email" id="email" placeholder="" onChange={(e) => this.handleChangeEmail}/>
         {this.state.hasErrorOnEmail === false ? <span className="text-danger">
                             <span>
                             Email doesn't match
@@ -165,7 +163,7 @@ class LoginPage extends React.Component {
       </FormGroup>
       <FormGroup>
         <Label for="examplePassword">Password</Label>
-        <Input type="password" name="password" id="password" placeholder="" onChange={(e) => this.handleChangePassword()}/>
+        <Input type="password" name="password" id="password" placeholder="" onChange={(e) => this.handleChangePassword}/>
         {this.state.hasErrorOnPassword === false ? <span className="text-danger">
                             <span>
                             Password doesn't match
@@ -174,18 +172,21 @@ class LoginPage extends React.Component {
       </FormGroup>
                           <div className="section-top-20">
                           <div className="text.center">
-                            <Button round onClick={() => this.handleClick()} type="submit">
+                          {/* <ConditionalLink to={"/login-success"}>
+                          
+                          </ConditionalLink> */}
+                          <Button round onClick={() => this.handleClick()} type="submit">
                               Login
                             </Button>
                           </div>
                           </div>
                         </Form>
-                      </GridItem>
-                    </GridContainer>
+                      </Col>
+                    </Row>
                   </div>
                 </div>
-              </GridItem>
-            </GridContainer>
+              </Col>
+            </Row>
           </div>
         </div>
       </div>
