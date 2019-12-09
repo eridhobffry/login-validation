@@ -172,12 +172,25 @@ class LoginPage extends React.Component {
       </FormGroup>
                           <div className="section-top-20">
                           <div className="text.center">
-                          {/* <ConditionalLink to={"/login-success"}>
                           
-                          </ConditionalLink> */}
-                          <Button round onClick={() => this.handleClick()} type="submit">
+{this.state.hasErrorOnEmail && this.state.hasErrorOnPassword && this.state.email !== "" && !this.state.password !== "" ?
+  <Link
+  to={{
+    pathname: "/login-success",
+    state: { hasErrorOnEmail: true, hasErrorOnPassword: true }
+  }}
+  
+> 
+<Button round onClick={() => this.handleClick()} type="submit">
                               Login
                             </Button>
+</Link>
+:
+<Button round onClick={() => this.handleClick()} type="submit">
+                              Login
+                            </Button>
+}
+                         
                           </div>
                           </div>
                         </Form>
